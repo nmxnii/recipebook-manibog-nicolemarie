@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Nic's Recipe Book</title>
-</head>
-<body>
-    <h1><a href = '/recipes/list'>Recipe Book</a></h1>
-    <h2>
-        <ul>
-            {% for recipe in object_list %}
-            <li><a href= "{{ recipe.get_absolute_url }}" >Recipe {{ recipe.name }}</a></li>
-            {% endfor %}
-        </ul>
-    </h2>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        {% for recipe in object_list %}
+            <li>
+                <a href= "{{ recipe.get_absolute_url }}" >Recipe {{ forloop.counter }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

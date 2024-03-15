@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Nic's Recipe Book</title>
-</head>
-<body>
+{%extends "base.html"%}
+
+    
+    
+{%block content%}
     <h1><a href = '/recipes/list'>Recipe Book</a></h1>
     <h2>Recipe {{ object.name }}</h2>
-    <h3>
+    
+    <h3> by {{recipe.author}}</h3>
         <ul>
             {% for ingredient in object.ingredients.all %}
             <li>{{ingredient.quantity}} of {{ ingredient.ingredientF.name }}</li> 
             {% endfor %}
         </ul>
-    </h3>
-</body>
-</html>
+    
+{% endblock content%}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+<head>
+    <title>Login Page</title>
+</head>
+{% block content %}
+    <h1> Login </h1> 
+    <a href="{% url 'password_reset' %}">Forgot your password?</a>
+
+    <form method = 'POST'>
+        {%csrf_token%} <!--csrf: cross site request forgery-->
+        {{form.as_p}} <!--renders all fields-->
+        <button type = "submit">Login</button>
+    </form>
+    <br>
+
+    
+{% endblock content %}
